@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #ecfeff;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #06b6d4;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adjusted padding for better spacing */
+}
+
+a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+    border-bottom: transparent 4px solid; /* Default border color */
+    border-radius: 10%;
+    transition: border-bottom 0.3s ease-in-out; /* Added smooth transition */
+}
+
+a:hover {
+    border-bottom: #fff 4px solid;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    background-color: #06b6d4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #0891b2;
+}
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar-content">
+            <a href="{{ url_for('home') }}">Home</a>
+            <br>
+            <a style="border-bottom: #0891b2 4px solid;" href="{{ url_for('add_product') }}">Add Product</a>
+            <br>
+        </div>
+    </nav>
+
+
+    <!-- Form for uploading an image -->
+    <form method="POST" action="{{ url_for('add_product') }}" enctype="multipart/form-data">
+        <label for="file">Choose an image file:</label>
+        <input type="file" name="file" accept=".jpg, .png" required>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+
+</body>
+
+</html>
